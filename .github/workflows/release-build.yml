@@ -47,6 +47,7 @@ jobs:
           - x86_64
         sdk:
           - openwrt-24.10
+          - SNAPSHOT
 
     steps:
       - uses: actions/checkout@v4
@@ -69,7 +70,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.arch }}-${{ matrix.sdk }}
-          path: bin/packages/${{ matrix.arch }}/packages_ci/*.ipk
+          path: |
+            bin/packages/${{ matrix.arch }}/packages_ci/*.apk
+            bin/packages/${{ matrix.arch }}/packages_ci/*.ipk
 
       - name: Create compress files
         run: |
@@ -82,5 +85,5 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           allowUpdates: true
           replacesArtifacts: true
-          prerelease: true
+          prerelease: false
           artifacts: "${{ matrix.sdk }}-${{ matrix.arch }}.tar.gz"
