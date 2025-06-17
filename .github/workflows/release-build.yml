@@ -59,7 +59,7 @@ jobs:
           sed -i '/golang-package/a \\tGO_PKG_DEFAULT_LDFLAGS:=-w -s -extldflags "-static"' openlist/Makefile
 
       - name: Build
-        uses: sbwml/openwrt-gh-action-sdk@go1.24
+        uses: sbwml/openwrt-gh-action-sdk@go1.25
         env:
           ARCH: ${{ matrix.arch }}-${{ matrix.sdk }}
           FEEDNAME: packages_ci
@@ -75,6 +75,7 @@ jobs:
             bin/packages/${{ matrix.arch }}/packages_ci/*.ipk
 
       - name: Create compress files
+        continue-on-error: true
         run: |
           tar -zcvf ${{ matrix.sdk }}-${{ matrix.arch }}.tar.gz -C bin/packages/${{ matrix.arch }}/ packages_ci
 
