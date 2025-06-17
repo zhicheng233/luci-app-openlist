@@ -56,6 +56,11 @@
   sh -c "$(curl -ksS https://raw.githubusercontent.com/sbwml/luci-app-openlist/main/install.sh)"
   ```
 
+  # install via ghproxy
+  ```shell
+  sh -c "$(curl -ksS https://raw.githubusercontent.com/sbwml/luci-app-openlist/main/install.sh)" _ gh_proxy="https://gh.cooluc.com"
+  ```
+
 --------------
 
 ![luci-app-openlist](https://github.com/user-attachments/assets/80593704-1e02-4bcf-8290-a0c7c37012f4)
