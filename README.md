@@ -47,8 +47,13 @@
 
 - Install `curl` package
   ```shell
+  # for opkg package manager (openwrt 21.02 ~ 24.10)
   opkg update
   opkg install curl
+  
+  # for apk package manager
+  apk update
+  apk add curl
   ```
 
 - Execute install script (Multi-architecture support)
@@ -63,4 +68,4 @@
 
 --------------
 
-![luci-app-openlist](https://github.com/user-attachments/assets/80593704-1e02-4bcf-8290-a0c7c37012f4)
+![luci-app-openlist](https://github.com/user-attachments/assets/50d8ee3a-e589-4285-922a-40c82f96b9f5)
